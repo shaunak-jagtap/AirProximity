@@ -8,9 +8,9 @@
 import UIKit
 
 class AQIndexTableViewCell: UITableViewCell {
-    var txtCityName = UILabel()
-    var valueLbl = UILabel()
-    var qualityValue = UILabel()
+    var cityNameLabel = UILabel()
+    var aqiValueLabel = UILabel()
+    var updatedLabel = UILabel()
     var bgView = UIView()
     
     override func awakeFromNib() {
@@ -19,46 +19,46 @@ class AQIndexTableViewCell: UITableViewCell {
         
     func configureCell(data: AirQualityElement) {
         setupUI()
-        valueLbl.text = "AQI:" + String(format: "%.2f", data.aqi)
+        aqiValueLabel.text = "AQI:" + String(format: "%.2f", data.aqi)
         let date = Date(timeIntervalSince1970: (Double(Date().currentTimeMillis()) / 1000.0))
         let airQuality = AirQualityGrade.getAirQualityFor(aqi: data.aqi)
-        txtCityName.text = data.city + ": \(airQuality.getAirQualityLevel())"
-        txtCityName.numberOfLines = 0
-        qualityValue.text = "Updated \(Date().timeAgoSince(date))"
+        cityNameLabel.text = data.city + ": \(airQuality.getAirQualityLevel())"
+        cityNameLabel.numberOfLines = 0
+        updatedLabel.text = "Updated \(Date().timeAgoSince(date))"
         bgView.layer.borderColor = airQuality.getLabelColor().cgColor
-        valueLbl.textColor = airQuality.getLabelColor()
-        txtCityName.textColor = airQuality.getLabelColor()
-        qualityValue.textColor = airQuality.getLabelColor()
+        aqiValueLabel.textColor = airQuality.getLabelColor()
+        cityNameLabel.textColor = airQuality.getLabelColor()
+        updatedLabel.textColor = airQuality.getLabelColor()
     }
     
     func setupUI() {
         
-        txtCityName.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
-        valueLbl.font = UIFont(name:"Helvetica Neue", size: 14.0)
-        qualityValue.font = UIFont(name:"Helvetica Neue", size: 14.0)
+        cityNameLabel.font = UIFont(name:"HelveticaNeue-Bold", size: 17.0)
+        aqiValueLabel.font = UIFont(name:"Helvetica Neue", size: 14.0)
+        updatedLabel.font = UIFont(name:"Helvetica Neue", size: 14.0)
         
         bgView.backgroundColor = .black
         self.backgroundColor = .black
         bgView.layer.borderWidth = 2
         bgView.layer.cornerRadius = 8
-        qualityValue.textAlignment = .right
+        updatedLabel.textAlignment = .right
         contentView.backgroundColor = .clear
         
         self.translatesAutoresizingMaskIntoConstraints = false
-        txtCityName.translatesAutoresizingMaskIntoConstraints = false
-        valueLbl.translatesAutoresizingMaskIntoConstraints = false
-        qualityValue.translatesAutoresizingMaskIntoConstraints = false
+        cityNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        aqiValueLabel.translatesAutoresizingMaskIntoConstraints = false
+        updatedLabel.translatesAutoresizingMaskIntoConstraints = false
         bgView.translatesAutoresizingMaskIntoConstraints = false
 
         contentView.addSubview(bgView)
-        bgView.addSubview(txtCityName)
-        bgView.addSubview(valueLbl)
-        bgView.addSubview(qualityValue)
+        bgView.addSubview(cityNameLabel)
+        bgView.addSubview(aqiValueLabel)
+        bgView.addSubview(updatedLabel)
         
         let views: [String: Any] = [
-            "cityName": txtCityName,
-            "valueLbl": valueLbl,
-            "qualityValue": qualityValue,
+            "cityName": cityNameLabel,
+            "valueLbl": aqiValueLabel,
+            "qualityValue": updatedLabel,
             "bgView": bgView]
         
         var constraints: [NSLayoutConstraint] = []
@@ -101,10 +101,10 @@ class AQIndexTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate(constraints)
         
-        valueLbl.setContentHuggingPriority(UILayoutPriority.defaultLow, for:.horizontal)
-        qualityValue.setContentHuggingPriority(UILayoutPriority.defaultHigh, for:.horizontal)
+        aqiValueLabel.setContentHuggingPriority(UILayoutPriority.defaultLow, for:.horizontal)
+        updatedLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for:.horizontal)
         
-        qualityValue.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.horizontal);
+        updatedLabel.setContentCompressionResistancePriority(UILayoutPriority.defaultHigh, for: NSLayoutConstraint.Axis.horizontal);
     }
 
 }

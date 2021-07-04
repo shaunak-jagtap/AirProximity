@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
         let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
 
-        title = "AIR QUALITY DASHBOARD"
+        title = Constants.homeVC
         airQualityTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
         airQualityTableView.register(AQIndexTableViewCell.self, forCellReuseIdentifier: "AQIndexTableViewCell")
         airQualityTableView.dataSource = self
@@ -59,7 +59,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "AQIndexTableViewCell", for: indexPath as IndexPath) as? AQIndexTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "AQIndexTableViewCell", for: indexPath as IndexPath) as? AQIndexTableViewCell, airQualityViewModel.airQualityData.count > indexPath.row {
             cell.configureCell(data: airQualityViewModel.airQualityData[indexPath.row])
             cell.selectionStyle = .none
             return cell

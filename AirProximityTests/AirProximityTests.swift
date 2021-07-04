@@ -2,7 +2,7 @@
 //  AirProximityTests.swift
 //  AirProximityTests
 //
-//  Created by Shaunak Jagtap on 05/07/21.
+//  Created by Shaunak Jagtap on 23/06/21.
 //
 
 import XCTest
@@ -20,7 +20,7 @@ class AirProximityTests: XCTestCase {
 
     func testServerConnection() throws {
         let aqiVM = AirQualityViewModel()
-        aqiVM.listenAQIEvents()
+        aqiVM.startAQIEvents()
         let aqiExpectation = expectation(description: "connected")
         aqiVM.aqiCallback = {
             aqiExpectation.fulfill()

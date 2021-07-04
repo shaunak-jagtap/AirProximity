@@ -31,11 +31,13 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
     var webSocketTask: URLSessionWebSocketTask!
     var urlSession: URLSession!
     let delegateQueue = OperationQueue()
-    
+    var timer: Timer?
+
     init(url: URL) {
         super.init()
         urlSession = URLSession(configuration: .default, delegate: self, delegateQueue: delegateQueue)
         webSocketTask = urlSession.webSocketTask(with: url)
+        timer = Timer.scheduledTimer(timeInterval: Constants.aqiTimer, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
@@ -48,6 +50,10 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
     
     func connect() {
         webSocketTask.resume()
+        listen()
+    }
+    
+    @objc func fireTimer() {
         listen()
     }
     
@@ -68,9 +74,7 @@ class WebSocketTaskConnection: NSObject, WebSocketConnection, URLSessionWebSocke
                     self.delegate?.onMessage(connection: self, data: data)
                 @unknown default:
                     fatalError()
-                }
-                
-                self.listen()
+                }                
             }
         }
     }

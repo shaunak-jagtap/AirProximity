@@ -23,6 +23,7 @@
 		9E52097B2690E29D00FCF43E /* AQIndexTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52097A2690E29D00FCF43E /* AQIndexTableViewCell.swift */; };
 		9E52098126922D7500FCF43E /* AirProximityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52098026922D7500FCF43E /* AirProximityExtensions.swift */; };
 		9E52098326923C4700FCF43E /* AQIChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E52098226923C4700FCF43E /* AQIChartViewModel.swift */; };
+		9E520986269250FE00FCF43E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E520985269250FE00FCF43E /* Constants.swift */; };
 		C13D30B526920EAC0045BB1F /* AQIChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D30B426920EAC0045BB1F /* AQIChartViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		9E52097A2690E29D00FCF43E /* AQIndexTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIndexTableViewCell.swift; sourceTree = "<group>"; };
 		9E52098026922D7500FCF43E /* AirProximityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirProximityExtensions.swift; sourceTree = "<group>"; };
 		9E52098226923C4700FCF43E /* AQIChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIChartViewModel.swift; sourceTree = "<group>"; };
+		9E520985269250FE00FCF43E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C13D30B426920EAC0045BB1F /* AQIChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AQIChartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 		9E5075612683A70900046928 /* AirProximity */ = {
 			isa = PBXGroup;
 			children = (
+				9E520984269250EB00FCF43E /* Constants */,
 				9E52097F26922D5900FCF43E /* Extensions */,
 				9E50759E2683B66700046928 /* Network */,
 				9E50759D2683B65900046928 /* Manager */,
@@ -224,6 +227,14 @@
 				9E52098026922D7500FCF43E /* AirProximityExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E520984269250EB00FCF43E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9E520985269250FE00FCF43E /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +384,7 @@
 				9E5075972683B25700046928 /* AirQuality.swift in Sources */,
 				9E520979268F813E00FCF43E /* AirQualityViewModel.swift in Sources */,
 				9E5075952683AF3100046928 /* SocketManager.swift in Sources */,
+				9E520986269250FE00FCF43E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -45,7 +45,7 @@ class AQIChartViewController : UIViewController {
         let dataSet = LineChartDataSet(entries: viewModel.arrAQI)
         let data = LineChartData(dataSets: [dataSet])
         lineChart.data = data
-        lineChart.chartDescription.text = "Updated Air Quality Index"
+        lineChart.chartDescription.text = Constants.chartLabel
         lineChart.notifyDataSetChanged()
     }
 }

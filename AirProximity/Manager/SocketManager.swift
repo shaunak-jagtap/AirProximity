@@ -45,8 +45,12 @@ final class SocketManager: WebSocketConnectionDelegate {
     var webSocketConnection: WebSocketConnection!
     
     func connect() {
-        webSocketConnection = WebSocketTaskConnection(url: URL(string: "ws://city-ws.herokuapp.com/")!)
-        webSocketConnection.delegate = self
-        webSocketConnection.connect()
+        if let url  = URL(string: Constants.cityAQIurl) {
+            webSocketConnection = WebSocketTaskConnection(url: url)
+            webSocketConnection.delegate = self
+            webSocketConnection.connect()
+        } else {
+            print(Constants.invalidURL)
+        }
     }
 }
