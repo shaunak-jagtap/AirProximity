@@ -1,10 +1,28 @@
 # AirProximity
 iOS App to see mock live city Air Quality Index data/graph in Swift with WebSocket
 
+**Note**
+- Reduce socket timer value in constants file to see frequent changes on graph quickly
+
+**Features**
+- Singleton Wrapper to manage websocket connections
+- VFL & programatic UI
+- Use of Delegation and Protocols
+- ViewModels to improve testability
+- Added one test case to check connections
+
 **Architecture**:
 
 ![AQI](https://user-images.githubusercontent.com/13964462/124398266-6ce54480-dd32-11eb-998c-11bf3a7e1469.png)
 
+
+**Future Scope**
+- Graph: Add params and specific entities to track
+- Add Core Data or persistent storage of AQI data
+- Add more test cases for data reception and validation
+- Error Handling
+- Localization
+- Fix TODOs
 
 **Screenshots**
 
